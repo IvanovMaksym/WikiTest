@@ -1,5 +1,7 @@
-package com.company.pages;
+package model;
 
+import com.company.pages.WebPage;
+import com.company.pages.WikiMain;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -21,8 +23,7 @@ public class TestCase{
         browser.quit();
     }
 
-    public WebPage getWikiMain(){
-        browser.get("https://www.wikipedia.org/");
-        return new WikiMain(browser);
+    public WikiApp getWikiApp(){
+        return new WikiApp(browser);
     }
 }

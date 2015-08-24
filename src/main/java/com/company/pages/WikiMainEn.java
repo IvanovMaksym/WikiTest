@@ -28,7 +28,7 @@ public class WikiMainEn extends WebPage{
         return getTitle().getText();
     }
 
-    public WikiPage searchForPage(String input){
+    public WebPage searchForPage(String input){
         searchField.sendKeys(input);
         searchButton.click();
         return new WikiPage(driver);

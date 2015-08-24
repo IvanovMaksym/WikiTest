@@ -1,29 +1,30 @@
 import com.company.pages.*;
+import model.TestCase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class TestWikiMain extends TestCase{
 
-    @Test
+public class TestWikiMain extends TestCase {
+
+    @Test(enabled = false)
     public void verifyEnWiki() {
 
-        WikiMain wikiMain = (WikiMain) getWikiMain();
-        WikiMainEn wikiMainEn = (WikiMainEn) wikiMain.getWikiEn();
+        WikiMainEn wikiMainEn = (WikiMainEn) getWikiApp().getWikiEn();
         Assert.assertTrue(wikiMainEn.getTitleText().contains("Welcome to"));
     }
 
-/*    @Test(enabled = false)
+    @Test
     public void verifySearchField(){
 
         String sabre = "Sabre Corporation";
 
-        WikiMain wikiMain = new WikiMain(browser);
-        WikiMainEn enPage = wikiMain.getWikiEn();
-        WikiPage wikiPage = enPage.searchForPage(sabre);
-        Assert.assertTrue(wikiPage.getFirstHeading().equalsIgnoreCase(sabre));
+        WikiMainEn wikiMainEn = (WikiMainEn) getWikiApp().getWikiEn();
+        WikiPage wikiPage = (WikiPage) wikiMainEn.searchForPage(sabre);
+        assertThat(wikiPage.getFirstHeading(), equalTo(sabre));
 
-    }*/
-
+    }
 
 }
