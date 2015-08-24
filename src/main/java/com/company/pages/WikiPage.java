@@ -8,16 +8,15 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by Max on 8/23/2015.
  */
-public class WikiPage{
+public class WikiPage extends WebPage{
 
-    private WebDriver driver;
+    //private WebDriver driver;
 
     @FindBy(id = "firstHeading")
     private WebElement firstHeading;
 
     public WikiPage(WebDriver driver){
-        super();
-        this.driver = driver;
+        super(driver);
     }
 
     public String getFirstHeading(){
