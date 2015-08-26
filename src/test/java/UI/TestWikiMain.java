@@ -1,6 +1,12 @@
+package UI;
+
 import com.company.pages.*;
 import model.TestCase;
+import model.XMLDataProvider;
 import org.testng.Assert;
+import org.testng.ITestContext;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -16,15 +22,19 @@ public class TestWikiMain extends TestCase {
         Assert.assertTrue(wikiMainEn.getTitleText().contains("Welcome to"));
     }
 
-    @Test
-    public void verifySearchField(){
 
-        String sabre = "Sabre Corporation";
+    @Test(dataProvider = "dataProvider", dataProviderClass = XMLDataProvider.class)
+    public void verifySearchField(String s, String s1){
 
         WikiMainEn wikiMainEn = (WikiMainEn) getWikiApp().getWikiEn();
-        WikiPage wikiPage = (WikiPage) wikiMainEn.searchForPage(sabre);
-        assertThat(wikiPage.getFirstHeading(), equalTo(sabre));
-
+        WikiPage wikiPage = (WikiPage) wikiMainEn.searchForPage(s);
+        assertThat(wikiPage.getFirstHeading(), equalTo(s1));
     }
 
+
+
+
+
 }
+
+

@@ -1,0 +1,15 @@
+<tests>
+
+    <test id = "1">
+        <parameter name = "input">Sabre Corporation</parameter>
+    </test>
+
+    <test id = "2">
+        <parameter name = "input">Sabre Corporation1</parameter>
+    </test>
+
+    <test id= "3">
+        <parameter name = "input">Sabre Corporation2</parameter>
+    </test>
+
+</tests>
