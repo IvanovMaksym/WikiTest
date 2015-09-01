@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 
 
-public class XMLDataProvider {
+public class DataProviderOld {
 
     @DataProvider
     public static Object[][] dataProvider(){
@@ -15,10 +15,5 @@ public class XMLDataProvider {
                              {"Sabre Corporatopn", "Sabre Corporation"}
                              };
     }
-
-/*    private static String getTestCaseNameFromCaller(Method caller) {
-        return caller.getDeclaringClass().getName().replaceAll("\\.", "/")
-                + ".xml";
-    }*/
 
 }
