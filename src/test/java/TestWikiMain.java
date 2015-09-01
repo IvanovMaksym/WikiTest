@@ -1,12 +1,8 @@
-package UI;
-
 import com.company.pages.*;
 import model.TestCase;
-import model.XMLDataProvider;
+import model.XMLTestConfig;
+import model.XMLTestDataProvider;
 import org.testng.Assert;
-import org.testng.ITestContext;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -23,12 +19,11 @@ public class TestWikiMain extends TestCase {
     }
 
 
-    @Test(dataProvider = "dataProvider", dataProviderClass = XMLDataProvider.class)
-    public void verifySearchField(String s, String s1){
-
+    @Test(dataProvider = "XMLTestData", dataProviderClass = XMLTestDataProvider.class)
+    public void verifySearchField(XMLTestConfig testConfig){
         WikiMainEn wikiMainEn = (WikiMainEn) getWikiApp().getWikiEn();
-        WikiPage wikiPage = (WikiPage) wikiMainEn.searchForPage(s);
-        assertThat(wikiPage.getFirstHeading(), equalTo(s1));
+        WikiPage wikiPage = (WikiPage) wikiMainEn.searchForPage(testConfig.get("input"));
+        assertThat(wikiPage.getFirstHeading(), equalTo(testConfig.get("input")));
     }
 
 
