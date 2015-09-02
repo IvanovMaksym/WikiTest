@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TestWikiMain extends TestCase {
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void verifyEnWiki() {
 
         WikiMainEn wikiMainEn = (WikiMainEn) getWikiApp().getWikiEn();
