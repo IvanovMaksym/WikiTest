@@ -28,7 +28,7 @@ public class TestWikiMain extends TestCase {
 
     @Test
     public void testBranch(){
-        
+        String test = "testmavenchange";
     }
 
 
