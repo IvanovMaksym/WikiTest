@@ -22,8 +22,8 @@ public class TestWikiMain extends TestCase {
     @Test(dataProvider = "XMLTestData", dataProviderClass = XMLTestDataProvider.class)
     public void verifySearchField(XMLTestConfig testConfig){
         WikiMainEn wikiMainEn = (WikiMainEn) getWikiApp().getWikiEn();
-        WikiPage wikiPage = (WikiPage) wikiMainEn.searchForPage(testConfig.get("123input"));
-        assertThat(wikiPage.getFirstHeading(), equalTo(testConfig.get("123input")));
+        WikiPage wikiPage = (WikiPage) wikiMainEn.searchForPage(testConfig.get("input"));
+        assertThat(wikiPage.getFirstHeading(), equalTo(testConfig.get("input")));
     }
 
     @Test
