@@ -7,6 +7,7 @@ import model.XMLTestDataProvider;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.AssertJUnit.assertFalse;
@@ -22,9 +23,10 @@ public class TestLogin extends TestCase {
     public void loginNegative(XMLTestConfig testConfig){
 
         LoginPage loginPage = (LoginPage) getWikiApp().getLoginPage();
-        WikiBasePage page = loginPage.loginAction(testConfig.get("username"), testConfig.get("password"));
+        loginPage.loginAction(testConfig.get("username"), testConfig.get("password"));
 
-        assertTrue("Should be instance of LoginPage class", LoginPage.class.isInstance(page));
+        assertTrue("Should be instance of LoginPage class", LoginPage.class.isInstance(loginPage));
+        assertThat(loginPage.getErrorBox().getText(), containsString("Incorrect password entered. Please try again."));
     }
 
 
@@ -35,6 +37,7 @@ public class TestLogin extends TestCase {
         WikiBasePage page = loginPage.loginAction(testConfig.get("username"), testConfig.get("password"));
 
         assertTrue("Should be instance of WikiMainEn class", WikiMainEn.class.isInstance(page));
+        assertThat(page.getLoggedInUser().getText(), equalTo(testConfig.get("username")));
     }
 
 

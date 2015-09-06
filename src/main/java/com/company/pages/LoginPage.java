@@ -25,6 +25,8 @@ public class LoginPage extends WikiBasePage {
     WebElement passwordInputField;
     @FindBy(id = "wpLoginAttempt")
     WebElement loginButton;
+    @FindBy(xpath = ".//*[@id='userloginForm']/form/div[1]")
+    WebElement errorBox;
 
     private WebElement getLoginInputField(){
         return loginInputField;
@@ -57,8 +59,11 @@ public class LoginPage extends WikiBasePage {
         if (isLoggedIn()) {
             return new WikiMainEn(driver);
         }
-        else return new LoginPage(driver);
+        return new LoginPage(driver);
+    }
 
+    public WebElement getErrorBox(){
+        return errorBox;
     }
 
 }
