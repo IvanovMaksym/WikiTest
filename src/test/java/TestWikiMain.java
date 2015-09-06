@@ -26,15 +26,6 @@ public class TestWikiMain extends TestCase {
         assertThat(wikiPage.getFirstHeading(), equalTo(testConfig.get("input")));
     }
 
-    @Test
-    public void testBranch(){
-        String test = "testmavenchange";
-    }
-
-
-
-
-
 }
 
 

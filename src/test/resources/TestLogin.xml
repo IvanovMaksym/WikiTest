@@ -1,0 +1,33 @@
+<?xml version = "1.0" standalone = "yes"?>
+
+<TestCase>
+
+    <title>TestLogin</title>
+
+    <description>blablabla</description>
+
+    <tests>
+
+        <test>
+
+            <name>loginPositive</name>
+            <parameters>
+                <parameter name="username">MaxIvanovTest</parameter>
+                <parameter name="password">w1k1u$3r</parameter>
+            </parameters>
+
+        </test>
+
+        <test>
+
+            <name>loginNegative</name>
+            <parameters>
+                <parameter name="username">MaxIvanovTest</parameter>
+                <parameter name="password">w1k1u$3r.</parameter>
+            </parameters>
+
+        </test>
+
+    </tests>
+
+</TestCase>

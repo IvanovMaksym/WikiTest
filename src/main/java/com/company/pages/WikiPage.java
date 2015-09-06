@@ -4,12 +4,11 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by Max on 8/23/2015.
  */
-public class WikiPage extends WebPage{
+public class WikiPage extends WikiBasePage {
 
     @FindBy(id = "firstHeading")
     private WebElement firstHeading;

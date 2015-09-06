@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class WikiMainEn extends WebPage{
+public class WikiMainEn extends WikiBasePage {
 
     //private WebDriver driver;
 
@@ -20,6 +20,8 @@ public class WikiMainEn extends WebPage{
     private WebElement searchButton;
 
 
+
+
     public WebElement getTitle(){
         return title;
     }
@@ -28,11 +30,12 @@ public class WikiMainEn extends WebPage{
         return getTitle().getText();
     }
 
-    public WebPage searchForPage(String input){
+    public WikiBasePage searchForPage(String input){
         searchField.sendKeys(input);
         searchButton.click();
         return new WikiPage(driver);
     }
+
 
 }
 
